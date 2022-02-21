@@ -9,7 +9,7 @@ namespace CatsAreThemed;
 
 [Serializable]
 public struct CustomTheme {
-    public int baseTheme;
+    public string baseTheme;
     public CustomThemeThemeOverrides? themeOverrides;
     public CustomThemeValueOverrides? valueOverrides;
 
@@ -89,84 +89,84 @@ public struct CustomTheme {
     }
 
     // ReSharper disable once CognitiveComplexity
-    public void ApplyThemeOverrides(ref ThemeSystem.Theme theme, IReadOnlyList<ThemeSystem.Theme> themes) {
+    public void ApplyThemeOverrides(ref ThemeSystem.Theme theme, IReadOnlyDictionary<string, ThemeSystem.Theme> themes) {
         if(!this.themeOverrides.HasValue) return;
         CustomThemeThemeOverrides themeOverrides = this.themeOverrides.Value;
 
-        if(themeOverrides.primaryColor.HasValue)
-            theme.primaryColor = themes[themeOverrides.primaryColor.Value].primaryColor;
-        if(themeOverrides.secondaryColor.HasValue)
-            theme.secondaryColor = themes[themeOverrides.secondaryColor.Value].secondaryColor;
-        if(themeOverrides.tertiaryColor.HasValue)
-            theme.tertiaryColor = themes[themeOverrides.tertiaryColor.Value].tertiaryColor;
+        if(themeOverrides.primaryColor is not null)
+            theme.primaryColor = themes[themeOverrides.primaryColor].primaryColor;
+        if(themeOverrides.secondaryColor is not null)
+            theme.secondaryColor = themes[themeOverrides.secondaryColor].secondaryColor;
+        if(themeOverrides.tertiaryColor is not null)
+            theme.tertiaryColor = themes[themeOverrides.tertiaryColor].tertiaryColor;
 
-        if(themeOverrides.primaryTexture.HasValue)
-            theme.primaryTexture = themes[themeOverrides.primaryTexture.Value].primaryTexture;
-        if(themeOverrides.primaryTextureTiling.HasValue)
-            theme.primaryTextureTiling = themes[themeOverrides.primaryTextureTiling.Value].primaryTextureTiling;
+        if(themeOverrides.primaryTexture is not null)
+            theme.primaryTexture = themes[themeOverrides.primaryTexture].primaryTexture;
+        if(themeOverrides.primaryTextureTiling is not null)
+            theme.primaryTextureTiling = themes[themeOverrides.primaryTextureTiling].primaryTextureTiling;
 
-        if(themeOverrides.useLine.HasValue)
-            theme.useLine = themes[themeOverrides.useLine.Value].useLine;
-        if(themeOverrides.lineTexture.HasValue)
-            theme.lineTexture = themes[themeOverrides.lineTexture.Value].lineTexture;
-        if(themeOverrides.lineTiling.HasValue)
-            theme.lineTiling = themes[themeOverrides.lineTiling.Value].lineTiling;
-        if(themeOverrides.lineOffset.HasValue)
-            theme.lineOffset = themes[themeOverrides.lineOffset.Value].lineOffset;
-        if(themeOverrides.lineColor.HasValue)
-            theme.lineColor = themes[themeOverrides.lineColor.Value].lineColor;
-        if(themeOverrides.lineWidth.HasValue)
-            theme.lineWidth = themes[themeOverrides.lineWidth.Value].lineWidth;
-        if(themeOverrides.lineOrderInLayer.HasValue)
-            theme.lineOrderInLayer = themes[themeOverrides.lineOrderInLayer.Value].lineOrderInLayer;
+        if(themeOverrides.useLine is not null)
+            theme.useLine = themes[themeOverrides.useLine].useLine;
+        if(themeOverrides.lineTexture is not null)
+            theme.lineTexture = themes[themeOverrides.lineTexture].lineTexture;
+        if(themeOverrides.lineTiling is not null)
+            theme.lineTiling = themes[themeOverrides.lineTiling].lineTiling;
+        if(themeOverrides.lineOffset is not null)
+            theme.lineOffset = themes[themeOverrides.lineOffset].lineOffset;
+        if(themeOverrides.lineColor is not null)
+            theme.lineColor = themes[themeOverrides.lineColor].lineColor;
+        if(themeOverrides.lineWidth is not null)
+            theme.lineWidth = themes[themeOverrides.lineWidth].lineWidth;
+        if(themeOverrides.lineOrderInLayer is not null)
+            theme.lineOrderInLayer = themes[themeOverrides.lineOrderInLayer].lineOrderInLayer;
 
-        if(themeOverrides.useSecondaryLine.HasValue)
-            theme.useSecondaryLine = themes[themeOverrides.useSecondaryLine.Value].useSecondaryLine;
-        if(themeOverrides.secondaryLineTexture.HasValue)
-            theme.secondaryLineTexture = themes[themeOverrides.secondaryLineTexture.Value].secondaryLineTexture;
-        if(themeOverrides.secondaryLineTiling.HasValue)
-            theme.secondaryLineTiling = themes[themeOverrides.secondaryLineTiling.Value].secondaryLineTiling;
-        if(themeOverrides.secondaryLineOffset.HasValue)
-            theme.secondaryLineOffset = themes[themeOverrides.secondaryLineOffset.Value].secondaryLineOffset;
-        if(themeOverrides.secondaryLineColor.HasValue)
-            theme.secondaryLineColor = themes[themeOverrides.secondaryLineColor.Value].secondaryLineColor;
-        if(themeOverrides.secondaryLineWidth.HasValue)
-            theme.secondaryLineWidth = themes[themeOverrides.secondaryLineWidth.Value].secondaryLineWidth;
-        if(themeOverrides.secondaryLineOrderInLayer.HasValue)
+        if(themeOverrides.useSecondaryLine is not null)
+            theme.useSecondaryLine = themes[themeOverrides.useSecondaryLine].useSecondaryLine;
+        if(themeOverrides.secondaryLineTexture is not null)
+            theme.secondaryLineTexture = themes[themeOverrides.secondaryLineTexture].secondaryLineTexture;
+        if(themeOverrides.secondaryLineTiling is not null)
+            theme.secondaryLineTiling = themes[themeOverrides.secondaryLineTiling].secondaryLineTiling;
+        if(themeOverrides.secondaryLineOffset is not null)
+            theme.secondaryLineOffset = themes[themeOverrides.secondaryLineOffset].secondaryLineOffset;
+        if(themeOverrides.secondaryLineColor is not null)
+            theme.secondaryLineColor = themes[themeOverrides.secondaryLineColor].secondaryLineColor;
+        if(themeOverrides.secondaryLineWidth is not null)
+            theme.secondaryLineWidth = themes[themeOverrides.secondaryLineWidth].secondaryLineWidth;
+        if(themeOverrides.secondaryLineOrderInLayer is not null)
             theme.secondaryLineOrderInLayer =
-                themes[themeOverrides.secondaryLineOrderInLayer.Value].secondaryLineOrderInLayer;
+                themes[themeOverrides.secondaryLineOrderInLayer].secondaryLineOrderInLayer;
 
-        if(themeOverrides.mainShapeRepeatableObjectId.HasValue)
-            theme.mainShapeRepeatableObjectId = themes[themeOverrides.mainShapeRepeatableObjectId.Value].mainShapeRepeatableObjectId;
-        if(themeOverrides.mainShapeRepeatableObjectRepeatDistance.HasValue)
-            theme.mainShapeRepeatableObjectRepeateDistance = themes[themeOverrides.mainShapeRepeatableObjectRepeatDistance.Value].mainShapeRepeatableObjectRepeateDistance;
-        if(themeOverrides.mainShapeRepeatableObjectSpawnChance.HasValue)
-            theme.mainShapeRepeatableObjectSpawnChance = themes[themeOverrides.mainShapeRepeatableObjectSpawnChance.Value].mainShapeRepeatableObjectSpawnChance;
+        if(themeOverrides.mainShapeRepeatableObjectId is not null)
+            theme.mainShapeRepeatableObjectId = themes[themeOverrides.mainShapeRepeatableObjectId].mainShapeRepeatableObjectId;
+        if(themeOverrides.mainShapeRepeatableObjectRepeatDistance is not null)
+            theme.mainShapeRepeatableObjectRepeateDistance = themes[themeOverrides.mainShapeRepeatableObjectRepeatDistance].mainShapeRepeatableObjectRepeateDistance;
+        if(themeOverrides.mainShapeRepeatableObjectSpawnChance is not null)
+            theme.mainShapeRepeatableObjectSpawnChance = themes[themeOverrides.mainShapeRepeatableObjectSpawnChance].mainShapeRepeatableObjectSpawnChance;
 
-        if(themeOverrides.backgroundColor.HasValue)
-            theme.backgroundColor = themes[themeOverrides.backgroundColor.Value].backgroundColor;
-        if(themeOverrides.fogColor1.HasValue)
-            theme.fogColor1 = themes[themeOverrides.fogColor1.Value].fogColor1;
-        if(themeOverrides.fogColor2.HasValue)
-            theme.fogColor2 = themes[themeOverrides.fogColor2.Value].fogColor2;
-        if(themeOverrides.gradientColor.HasValue)
-            theme.gradientColor = themes[themeOverrides.gradientColor.Value].gradientColor;
-        if(themeOverrides.disableGradientSpin.HasValue)
-            theme.disableGradientSpin = themes[themeOverrides.disableGradientSpin.Value].disableGradientSpin;
-        if(themeOverrides.backgroundParticles.HasValue)
-            theme.backgroundParticles = themes[themeOverrides.backgroundParticles.Value].backgroundParticles;
+        if(themeOverrides.backgroundColor is not null)
+            theme.backgroundColor = themes[themeOverrides.backgroundColor].backgroundColor;
+        if(themeOverrides.fogColor1 is not null)
+            theme.fogColor1 = themes[themeOverrides.fogColor1].fogColor1;
+        if(themeOverrides.fogColor2 is not null)
+            theme.fogColor2 = themes[themeOverrides.fogColor2].fogColor2;
+        if(themeOverrides.gradientColor is not null)
+            theme.gradientColor = themes[themeOverrides.gradientColor].gradientColor;
+        if(themeOverrides.disableGradientSpin is not null)
+            theme.disableGradientSpin = themes[themeOverrides.disableGradientSpin].disableGradientSpin;
+        if(themeOverrides.backgroundParticles is not null)
+            theme.backgroundParticles = themes[themeOverrides.backgroundParticles].backgroundParticles;
 
-        if(themeOverrides.bloom.HasValue)
-            theme.profile.bloom = themes[themeOverrides.bloom.Value].profile.bloom;
-        if(themeOverrides.colorGrading.HasValue)
-            theme.profile.colorGrading = themes[themeOverrides.colorGrading.Value].profile.colorGrading;
-        if(themeOverrides.chromaticAberration.HasValue)
+        if(themeOverrides.bloom is not null)
+            theme.profile.bloom = themes[themeOverrides.bloom].profile.bloom;
+        if(themeOverrides.colorGrading is not null)
+            theme.profile.colorGrading = themes[themeOverrides.colorGrading].profile.colorGrading;
+        if(themeOverrides.chromaticAberration is not null)
             theme.profile.chromaticAberration =
-                themes[themeOverrides.chromaticAberration.Value].profile.chromaticAberration;
-        if(themeOverrides.grain.HasValue)
-            theme.profile.grain = themes[themeOverrides.grain.Value].profile.grain;
-        if(themeOverrides.vignette.HasValue)
-            theme.profile.vignette = themes[themeOverrides.vignette.Value].profile.vignette;
+                themes[themeOverrides.chromaticAberration].profile.chromaticAberration;
+        if(themeOverrides.grain is not null)
+            theme.profile.grain = themes[themeOverrides.grain].profile.grain;
+        if(themeOverrides.vignette is not null)
+            theme.profile.vignette = themes[themeOverrides.vignette].profile.vignette;
     }
 
     // ReSharper disable once CognitiveComplexity
@@ -226,45 +226,45 @@ public struct CustomTheme {
 
 [Serializable]
 public struct CustomThemeThemeOverrides {
-    public int? primaryColor;
-    public int? secondaryColor;
-    public int? tertiaryColor;
+    public string? primaryColor;
+    public string? secondaryColor;
+    public string? tertiaryColor;
 
-    public int? primaryTexture;
-    public int? primaryTextureTiling;
+    public string? primaryTexture;
+    public string? primaryTextureTiling;
 
-    public int? useLine;
-    public int? lineTexture;
-    public int? lineTiling;
-    public int? lineOffset;
-    public int? lineColor;
-    public int? lineWidth;
-    public int? lineOrderInLayer;
+    public string? useLine;
+    public string? lineTexture;
+    public string? lineTiling;
+    public string? lineOffset;
+    public string? lineColor;
+    public string? lineWidth;
+    public string? lineOrderInLayer;
 
-    public int? useSecondaryLine;
-    public int? secondaryLineTexture;
-    public int? secondaryLineTiling;
-    public int? secondaryLineOffset;
-    public int? secondaryLineColor;
-    public int? secondaryLineWidth;
-    public int? secondaryLineOrderInLayer;
+    public string? useSecondaryLine;
+    public string? secondaryLineTexture;
+    public string? secondaryLineTiling;
+    public string? secondaryLineOffset;
+    public string? secondaryLineColor;
+    public string? secondaryLineWidth;
+    public string? secondaryLineOrderInLayer;
 
-    public int? mainShapeRepeatableObjectId;
-    public int? mainShapeRepeatableObjectRepeatDistance;
-    public int? mainShapeRepeatableObjectSpawnChance;
+    public string? mainShapeRepeatableObjectId;
+    public string? mainShapeRepeatableObjectRepeatDistance;
+    public string? mainShapeRepeatableObjectSpawnChance;
 
-    public int? backgroundColor;
-    public int? fogColor1;
-    public int? fogColor2;
-    public int? gradientColor;
-    public int? disableGradientSpin;
-    public int? backgroundParticles;
+    public string? backgroundColor;
+    public string? fogColor1;
+    public string? fogColor2;
+    public string? gradientColor;
+    public string? disableGradientSpin;
+    public string? backgroundParticles;
 
-    public int? bloom;
-    public int? colorGrading;
-    public int? chromaticAberration;
-    public int? grain;
-    public int? vignette;
+    public string? bloom;
+    public string? colorGrading;
+    public string? chromaticAberration;
+    public string? grain;
+    public string? vignette;
 }
 
 [Serializable]

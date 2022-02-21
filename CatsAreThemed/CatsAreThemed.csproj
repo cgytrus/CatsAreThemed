@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net471</TargetFramework>
     <Product>Cats are Themed</Product>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Company>https://github.com/cgytrus/CatsAreThemed</Company>
     <LangVersion>10.0</LangVersion>
     <Nullable>enable</Nullable>
